@@ -16,7 +16,12 @@
         class="form-control mb-3"
       ></textarea>
 
-      <button class="btn btn-primary">Update</button>
+      <button
+        class="btn btn-primary"
+        :disabled="!currentTask.title || !currentTask.description"
+      >
+        Update
+      </button>
     </form>
     <div class="text-center">
       <button @click="handleDelete" class="btn btn-danger">Delete</button>

@@ -1,15 +1,24 @@
 <template>
-  <form @submit.prevent="saveTask">
-    <input type="text" placeholder="Write s title" v-model="task.title" />
+  <div class="col-md-4 offset-md-4">
+    <form @submit.prevent="saveTask" class="card card-body">
+      <h1 class="text-center mb-3">Create task</h1>
+      <input
+        type="text"
+        placeholder="Write a title"
+        v-model="task.title"
+        class="form-control mb-3"
+      />
 
-    <textarea
-      rows="3"
-      placeholder="Write a description"
-      v-model="task.description"
-    ></textarea>
+      <textarea
+        rows="3"
+        placeholder="Write a description"
+        v-model="task.description"
+        class="form-control mb-3"
+      ></textarea>
 
-    <button>Save</button>
-  </form>
+      <button class="btn btn-primary">Save</button>
+    </form>
+  </div>
 </template>
 
 <script lang="ts">
@@ -26,7 +35,7 @@ export default defineComponent({
   methods: {
     async saveTask() {
       const res = await createTask(this.task)
-      console.log(res);
+      console.log(res)
       this.$router.push({ name: 'tasks' })
     },
   },
